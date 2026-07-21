@@ -1,7 +1,5 @@
-public class testDigiLibrary {
-
+public class testMain {
     public static void main(String[] args) {
-
         EBook ebook1 = new EBook("The Hobbit", "Fantasy", "0261102217", 150.00, "J.R.R. Tolkien", 310);
         Audiobook audio1 = new Audiobook("Atomic Habits", "Non-Fiction", "1847941831", 200.00, "N-104", 19800);
 
