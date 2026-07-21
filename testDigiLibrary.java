@@ -28,7 +28,7 @@ public class testDigiLibrary {
             System.out.println("----Details: ----");
             System.out.println(item);
             System.out.printf("Royalties Calculated (per book): R%.2f\n", item.calcRoyalties());
-            System.out.println("------------------------------------");
+            System.out.println("-----------------------------------");
         }
     }
 }
