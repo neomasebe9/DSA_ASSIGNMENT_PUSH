@@ -15,7 +15,7 @@ public abstract class DigiLibrary {
         this.bookName = bookName;
         this.genre = genre;
         this.ISBN = ISBN;
-        this.basePrice = basePrice;
+        setBasePrice(basePrice);
     }
 
     // ACCESSOR METHODS
@@ -35,6 +35,9 @@ public abstract class DigiLibrary {
     }
 
     public void setBasePrice(double basePrice) {
+        if (basePrice < 0) {
+            throw new NumberFormatException("Invalid number: " + basePrice + ". Enter positive value.");
+        }
         this.basePrice = basePrice;
     }
 
