@@ -1,4 +1,4 @@
-public class testDigiLibrary {
+public class testLibrary {
 
     public static void main(String[] args) {
 
