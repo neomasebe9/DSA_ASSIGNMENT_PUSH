@@ -10,7 +10,8 @@ import java.util.regex.Pattern;
 public class ComplexityAnalyzer {
 
     public static void main(String[] args) {
-        // Find all .java files in the current directory (excluding ComplexityAnalyzer itself)
+        // Find all .java files in the current directory (excluding ComplexityAnalyzer
+        // itself)
         File currentDir = new File(".");
         File[] files = currentDir
                 .listFiles((dir, name) -> name.endsWith(".java") && !name.equals("ComplexityAnalyzer.java"));
@@ -71,7 +72,8 @@ public class ComplexityAnalyzer {
     private static List<MethodData> extractMethods(String code) {
         List<MethodData> methods = new ArrayList<>();
 
-        // Regex matches standard public/private/protected or package-private method headers
+        // Regex matches standard public/private/protected or package-private method
+        // headers
         String headerRegex = "(?:public|protected|private|static|final|abstract|synchronized|\\s)+[\\w<>\\[\\]]+\\s+(\\w+)\\s*\\([^)]*\\)\\s*(?:throws\\s+[\\w\\s,]+)?\\s*\\{";
         Pattern pattern = Pattern.compile(headerRegex);
         Matcher matcher = pattern.matcher(code);
@@ -142,7 +144,8 @@ public class ComplexityAnalyzer {
             while (compMat.find())
                 compLine++;
 
-            // Clean comparisons out of line before checking assignments so '==' or '<=' isn't counted as '='
+            // Clean comparisons out of line before checking assignments so '==' or '<='
+            // isn't counted as '='
             String lineNoComp = line.replaceAll("==|!=|<=|>=|<|>", " ");
 
             // 2. Assignments
