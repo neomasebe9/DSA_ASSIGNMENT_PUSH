@@ -1,3 +1,4 @@
 @echo off
-javac *.javacjava ComplexityAnalyzer
+javac *.javac
+java ComplexityAnalyzer
 pause
