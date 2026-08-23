@@ -43,8 +43,8 @@ public class ChessSurvivalTest {
         Grid GRID = new Grid(NUM_COLUMNS, NUM_ROWS);
 
         // INITIALIZING
-        MyArrayList<Point> PAWNS = new MyArrayList<>();
-        MyArrayList<Point> TREASURES = new MyArrayList<>();
+        MyArrayListChessGame<Point> PAWNS = new MyArrayListChessGame<>();
+        MyArrayListChessGame<Point> TREASURES = new MyArrayListChessGame<>();
         int[] SCORE = new int[] { 0 };
 
         Point kingPoint = initializePlayer(GRID);

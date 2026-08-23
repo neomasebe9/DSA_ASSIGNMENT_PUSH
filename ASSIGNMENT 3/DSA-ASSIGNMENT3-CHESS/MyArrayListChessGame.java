@@ -1,8 +1,8 @@
-public class MyArrayList<E> {
+public class MyArrayListChessGame<E> {
     private int size;
     private E[] data;
 
-    public MyArrayList() {
+    public MyArrayListChessGame() {
         data = (E[]) new Object[100]; // unchecked cast warning normal here
         size = 0;
     }

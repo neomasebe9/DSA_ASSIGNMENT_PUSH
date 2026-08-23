@@ -105,7 +105,8 @@ public class Grid {
 
     // auxillary methods
 
-    public boolean movePiece(Point target, String direction, int rowPos, int colPos, int[] score, MyArrayList<Point> pawns, MyArrayList<Point> treasures) {
+    public boolean movePiece(Point target, String direction, int rowPos, int colPos, int[] score,
+            MyArrayListChessGame<Point> pawns, MyArrayListChessGame<Point> treasures) {
         /*
          * (U = up,
          * L = left,
@@ -200,7 +201,8 @@ public class Grid {
         return successMove;
     }
 
-    public void detectCollision(Point target, Point otherPiece, int rowPos, int colPos, int[] score, MyArrayList<Point> pawns, MyArrayList<Point> treasures) {
+    public void detectCollision(Point target, Point otherPiece, int rowPos, int colPos, int[] score,
+            MyArrayListChessGame<Point> pawns, MyArrayListChessGame<Point> treasures) {
         String targetPieceType = target.getType();
         String otherPieceType = otherPiece.getType();
 
@@ -237,8 +239,12 @@ public class Grid {
                         }
                     }
 
-                    setPosition(target, rowPos, colPos);
+                    System.out.println("Setting: " + target.getType() + " to coords: (" + rowPos + ", " + colPos + ")");
                     setPosition(defaultPoint, target.getRow(), target.getCol());
+                    System.out.println(
+                            "Setting: " + defaultPoint.getType() + " to coords: (" + target.getRow() + ", " + target
+                                    .getCol() + ")");
+                    setPosition(target, rowPos, colPos);
 
                     // Spawn replacement treasure
                     Point newTreasure = ChessSurvivalTest.initializeTreasure(this);
@@ -251,6 +257,28 @@ public class Grid {
                 System.out.println("GAME OVER!");
                 this.gridLife = false;
             }
+
+            if (otherPieceType.equals("*")) {
+                System.out.println(target.getType() + " and " + otherPiece.getType() + ": COLLISION OCCURED");
+
+            }
+        } else {
+            if (otherPieceType.equals("P")) {
+                System.out.println(target.getType() + " and " + otherPiece.getType() + ": COLLISION OCCURED");
+
+                // Remove treasure from MyArrayList
+                for (int i = 0; i < treasures.size(); i++) {
+                    if (treasures.get(i) == otherPiece) {
+                        treasures.remove(i);
+                        break;
+                    }
+                }
+
+                // Spawn replacement treasure
+                Point newTreasure = ChessSurvivalTest.initializeTreasure(this);
+                treasures.add(treasures.size(), newTreasure);
+            }
+
         }
     }
 
