@@ -5,7 +5,7 @@ public class StackAsMyLinkedList<E> {
     {
         theStack = new MyLinkedList<E>();
     }
-    
+
     public void push(E newElement)
     {
         theStack.prepend(newElement);
@@ -27,6 +27,11 @@ public class StackAsMyLinkedList<E> {
             return null;
         }
     }
+
+    public E peek(){
+        return theStack.getFirst();
+    }
+
     @Override
     public String toString()
     {

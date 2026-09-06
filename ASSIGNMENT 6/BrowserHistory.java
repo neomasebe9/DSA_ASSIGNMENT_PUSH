@@ -12,8 +12,9 @@ public class BrowserHistory<E> {
 
     // METHODS
     
-    public void visitPages(MyArrayList pages, int index){
+    public void visitPages(MyArrayList<E> pages, int index){
         if (index == pages.size()){
+            System.out.println();
             return;
         }
 
@@ -22,11 +23,29 @@ public class BrowserHistory<E> {
         visitPages(pages, index + 1);
     }
 
-    public void goBack(){
+    public void goBack(MyArrayList<String> pages){
 
     }
 
     public void displayHistory(){
+        boolean current = true;
+        int count = 0;
+        MyArrayList<E> temp = new MyArrayList();
 
+        while (historyStack.peek() != null){
+            E data = historyStack.pop();
+            if (current == true){
+                System.out.println( count + 1 + ". " + data + " (current).");
+                current = false;
+            } else {
+                System.out.println( count + 1 + ". " + data);
+                
+            }
+
+            temp.add(count, data);
+            count++;
+        }
+        
+        visitPages(temp, 0);
     }
 }
